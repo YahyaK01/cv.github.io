@@ -1,633 +1,262 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/Person">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title itemprop="name">Muhammad Yahya Khalid - CV</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        /* Main container to hold everything */
-        .main-container {
-            max-width: 900px;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            min-height: 100vh; /* Set minimum height to viewport height */
-        }
-        
-        /* Left Sidebar - increased width and full height */
-        .sidebar {
-            width: 35%; /* Increased from 25% to 35% */
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px;
-            font-size: 0.9em;
-            height: 100%; /* This will make it match the height of the parent container */
-            position: relative; /* For proper positioning */
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* Right content container - adjusted width */
-        .right-content {
-            width: 65%; /* Decreased from 75% to 65% */
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        /* Top Header - now positioned to the right of sidebar */
-        .top-header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-        }
-        
-        .top-header .name {
-            font-size: 2.2em;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: white;
-        }
-        
-        .top-header .job-title {
-            font-size: 1.2em;
-            color: #ecf0f1;
-            font-weight: 400;
-        }
-        
-        /* Improved image container and styling */
-        .image-container {
-            width: 140px; /* Increased size */
-            height: 140px; /* Increased size */
-            margin: 0 auto 30px auto; /* Center the image */
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            position: relative;
-        }
-        
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
-        
-        .sidebar-title {
-            margin-bottom: 15px;
-            font-size: 1.2em; /* Increased size */
-            font-weight: 600;
-            text-transform: uppercase;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-            padding-bottom: 5px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            font-size: 0.85em;
-        }
-        
-        .contact-icon {
-            margin-right: 8px;
-            font-weight: bold;
-        }
-        
-        .skills-list, .languages-list, .achievements-list, .activities-list {
-            list-style-type: none;
-            margin-top: 8px;
-            font-size: 0.85em;
-        }
-        
-        .skills-list li, .languages-list li, .achievements-list li, .activities-list li {
-            margin-bottom: 6px;
-            position: relative;
-            padding-left: 12px;
-        }
-        
-        .skills-list li:before, .languages-list li:before, .achievements-list li:before, .activities-list li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-        }
-        
-        .section-title {
-            margin: 20px 0 10px;
-            position: relative;
-            font-weight: 600;
-            font-size: 1.2em; /* Increased size */
-            text-transform: uppercase;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-            padding-bottom: 5px;
-        }
-        
-        /* Main Content */
-        .main-content {
-            width: 100%;
-            padding: 25px;
-            background-color: white;
-            flex-grow: 1; /* Allow content to grow and fill available space */
-        }
-        
-        .header {
-            padding-bottom: 15px;
-            border-bottom: 2px solid #eee;
-            margin-bottom: 25px;
-        }
-        
-        .profile-section {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        
-        .profile-heading {
-            font-size: 1.3em;
-            color: #2c3e50;
-            margin-bottom: 12px;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 5px;
-        }
-        
-        .section {
-            margin-bottom: 20px;
-        }
-        
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-        
-        .section-icon {
-            background-color: #2c3e50;
-            color: white;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 8px;
-            font-size: 0.9em;
-        }
-        
-        .section-heading {
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #2c3e50;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 4px;
-            width: 100%;
-        }
-        
-        .timeline {
-            position: relative;
-            padding-left: 25px;
-        }
-        
-        .timeline:before {
-            content: "";
-            position: absolute;
-            left: 6px;
-            top: 5px;
-            bottom: 0;
-            width: 2px;
-            background-color: #ddd;
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 18px;
-        }
-        
-        .timeline-item:before {
-            content: "";
-            position: absolute;
-            left: -19px;
-            top: 5px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #2c3e50;
-        }
-        
-        .timeline-heading {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 4px;
-        }
-        
-        .role {
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        
-        .company {
-            color: #7f8c8d;
-        }
-        
-        .date {
-            color: #95a5a6;
-            font-style: italic;
-            font-size: 0.9em;
-        }
-        
-        .responsibilities {
-            list-style-type: none;
-        }
-        
-        .responsibilities li {
-            position: relative;
-            padding-left: 12px;
-            margin-bottom: 4px;
-            font-size: 0.95em;
-        }
-        
-        .responsibilities li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #2c3e50;
-        }
-        
-        .summary-text {
-            text-align: justify;
-            margin-bottom: 15px;
-            line-height: 1.6;
-            font-size: 0.95em;
-        }
-        
-        /* Make sidebar take up remaining space */
-        .sidebar-spacer {
-            flex-grow: 1;
-        }
-        
-        /* New Footer Styles */
-        .sidebar-footer {
-            margin-top: 20px;
-            border-top: 2px solid rgba(255, 255, 255, 0.3);
-            padding-top: 15px;
-        }
-        
-        .certification-item {
-            margin-bottom: 10px;
-            font-size: 0.85em;
-        }
-        
-        .certification-title {
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-        
-        .certification-issuer {
-            font-style: italic;
-            color: #bdc3c7;
-        }
-        
-        .certification-date {
-            font-size: 0.8em;
-            color: #bdc3c7;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-top: 15px;
-        }
-        
-        .social-icon {
-            margin: 0 8px;
-            font-size: 1.2em;
-            color: white;
-            text-decoration: none;
-        }
-        
-        .footer-quote {
-            text-align: center;
-            font-style: italic;
-            margin-top: 15px;
-            font-size: 0.8em;
-            color: #bdc3c7;
-        }
-        
-        .interests-list {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 30px;
-            margin-bottom: 50px;
-            gap: 8px;
-        }
-        
-        .interest-tag {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 0.75em;
-        }
-        
-        /* Updated responsive styles */
-        @media (max-width: 768px) {
-            .main-container {
-                flex-direction: column;
-                min-height: auto; /* Reset min-height for mobile */
-            }
-            
-            .sidebar, .right-content {
-                width: 100%;
-                height: auto; /* Auto height on mobile */
-            }
-            
-            .timeline-heading {
-                flex-direction: column;
-            }
-            
-            .top-header {
-                width: 100%;
-            }
-            
-            .image-container {
-                margin: 0 auto 30px auto;
-                width: 120px;
-                height: 120px;
-            }
-            
-            .social-links {
-                justify-content: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title itemprop="name">Muhammad Yahya Khalid - CV</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    .main-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .sidebar {
+      width: 35%;
+      background: #2c3e50;
+      color: #fff;
+      padding: 20px;
+    }
+    .right-content {
+      width: 65%;
+      background: #fff;
+      padding: 20px;
+    }
+    .top-header {
+      background: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    .image-container {
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #fff;
+    }
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+    p, li {
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .timeline .timeline-item {
+      margin-bottom: 15px;
+    }
+  </style>
 </head>
 <body>
-    <div class="main-container">
+  <div class="main-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="image-container">
+        <img src="Yahya.png" alt="Muhammad Yahya Khalid" class="profile-img" itemprop="image">
+      </div>
+      <h2>CONTACT</h2>
+      <p><span itemprop="telephone">+92 316 6010077</span></p>
+      <p><span itemprop="email">muhammadyahyak01@gmail.com</span></p>
+      <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        <span itemprop="addressLocality">Sargodha</span>, 
+        <span itemprop="addressCountry">Pakistan</span>
+      </p>
+      <p><span itemprop="url">https://chyahyakhalid.netlify.app/</span></p>
+      <p><a href="https://linkedin.com/in/muhammad-yahya-khalid" itemprop="sameAs">LinkedIn</a></p>
       
-        <!-- Sidebar with Contact, Skills, Languages, Achievements, Certifications & Interests -->
-        <div class="sidebar">
-            
-            <div class="image-container">
-                <img src="Yahya.png" alt="Muhammad Yahya Khalid" class="profile-img" itemprop="image">
-            </div>
-            
-            <h2 class="sidebar-title">CONTACT</h2>
-            <div class="contact-item">
-                <span class="contact-icon">📞</span>
-                <span itemprop="telephone">+92 316 6010077</span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-icon">✉</span>
-                <span itemprop="email">muhammadyahyak01@gmail.com</span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-icon">📍</span>
-                <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                    <span itemprop="addressLocality">Sargodha</span>, 
-                    <span itemprop="addressCountry">Pakistan</span>
-                </span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-icon">🌐</span>
-                <span itemprop="url">https://chyahyakhalid.netlify.app/</span>
-            </div>
-            <div class="contact-item">
-                <span class="contact-icon">🔗</span>
-                <span>
-                    <a href="https://linkedin.com/in/muhammad-yahya-khalid" itemprop="sameAs" style="color: inherit; text-decoration: none;">linkedin.com/in/muhammad-yahya-khalid</a>
-                </span>
-            </div>
-            
-            <h2 class="section-title">SKILLS</h2>
-            <ul class="skills-list">
-                <li itemprop="knowsAbout">React JS</li>
-                <li itemprop="knowsAbout">PHP</li>
-                <li itemprop="knowsAbout">HTML5</li>
-                <li itemprop="knowsAbout">CSS</li>
-                <li itemprop="knowsAbout">JavaScript</li>
-                <li itemprop="knowsAbout">Python</li>
-                <li itemprop="knowsAbout">Liquid</li>
-            </ul>
-            
-            <h2 class="section-title">LANGUAGES</h2>
-            <ul class="languages-list">
-                <li itemprop="knowsLanguage">English</li>
-                <li itemprop="knowsLanguage">Urdu</li>
-            </ul>
-            
-            <h2 class="section-title">ACHIEVEMENTS</h2>
-            <ul class="achievements-list">
-                <li itemprop="award">3rd Position in NASA Space App Nation Wide</li>
-                <li itemprop="award">Participated In Future innovations Contest</li>
-            </ul>
-            
-            <div class="sidebar-footer">
-                <h2 class="section-title">CERTIFICATIONS</h2>
-                <div class="certification-item" itemscope itemtype="http://schema.org/EducationalOccupationalCredential">
-                    <div class="certification-title" itemprop="name">Full-Stack Web Development</div>
-                    <div class="certification-issuer" itemprop="issuer">Udemy</div>
-                    <div class="certification-date" itemprop="dateIssued" content="2023-05">May 2023</div>
-                </div>
-                <div class="certification-item" itemscope itemtype="http://schema.org/EducationalOccupationalCredential">
-                    <div class="certification-title" itemprop="name">React JS - Advanced Concepts</div>
-                    <div class="certification-issuer" itemprop="issuer">Coursera</div>
-                    <div class="certification-date" itemprop="dateIssued" content="2023-08">August 2023</div>
-                </div>
-                
-                <h2 class="section-title">INTERESTS</h2>
-                <div class="interests-list">
-                    <span class="interest-tag" itemprop="interest">Web Design</span>
-                    <span class="interest-tag" itemprop="interest">UI/UX</span>
-                    <span class="interest-tag" itemprop="interest">Database</span>
-                    <span class="interest-tag" itemprop="interest">AI</span>
-                    <span class="interest-tag" itemprop="interest">App Development</span>
-                </div>
-            </div>
+      <h2>SKILLS</h2>
+      <ul>
+        <li itemprop="knowsAbout">React JS</li>
+        <li itemprop="knowsAbout">PHP</li>
+        <li itemprop="knowsAbout">HTML5</li>
+        <li itemprop="knowsAbout">CSS</li>
+        <li itemprop="knowsAbout">JavaScript</li>
+        <li itemprop="knowsAbout">Python</li>
+        <li itemprop="knowsAbout">Liquid</li>
+      </ul>
+      
+      <h2>LANGUAGES</h2>
+      <ul>
+        <li itemprop="knowsLanguage">English</li>
+        <li itemprop="knowsLanguage">Urdu</li>
+      </ul>
+      
+      <h2>ACHIEVEMENTS</h2>
+      <ul>
+        <li itemprop="award">3rd Position in NASA Space App Nation Wide</li>
+        <li itemprop="award">Participated In Future innovations Contest</li>
+      </ul>
+      
+      <h2>CERTIFICATIONS</h2>
+      <div class="certification-item" itemscope itemtype="http://schema.org/EducationalOccupationalCredential">
+        <p class="certification-title" itemprop="name">Full-Stack Web Development</p>
+        <p class="certification-issuer" itemprop="issuer">Udemy</p>
+        <p class="certification-date" itemprop="dateIssued" content="2023-05">May 2023</p>
+      </div>
+      <div class="certification-item" itemscope itemtype="http://schema.org/EducationalOccupationalCredential">
+        <p class="certification-title" itemprop="name">React JS - Advanced Concepts</p>
+        <p class="certification-issuer" itemprop="issuer">Coursera</p>
+        <p class="certification-date" itemprop="dateIssued" content="2023-08">August 2023</p>
+      </div>
+      
+      <h2>INTERESTS</h2>
+      <ul>
+        <li itemprop="interest">Web Design</li>
+        <li itemprop="interest">UI/UX</li>
+        <li itemprop="interest">Database</li>
+        <li itemprop="interest">AI</li>
+        <li itemprop="interest">App Development</li>
+      </ul>
+    </div>
+    
+    <!-- Right Content -->
+    <div class="right-content">
+      <div class="top-header">
+        <h1 class="name" itemprop="name">MUHAMMAD YAHYA KHALID</h1>
+        <p class="job-title" itemprop="jobTitle">WEB DESIGNER &amp; DEVELOPER</p>
+      </div>
+      
+      <div class="main-content">
+        <div class="profile-section" itemprop="description">
+          <h2>PROFESSIONAL PROFILE</h2>
+          <p class="summary-text">
+            Creative Web Designer &amp; Developer with expertise in user-centric designs and module development. Passionate about crafting impactful web experiences and delivering tailored solutions.
+          </p>
         </div>
         
-        <!-- Right Content: Header and Main Content -->
-        <div class="right-content">
-            
-            <div class="top-header">
-                <h1 class="name" itemprop="name">MUHAMMAD YAHYA KHALID</h1>
-                <p class="job-title" itemprop="jobTitle">WEB DESIGNER &amp; DEVELOPER</p>
+        <div class="section">
+          <h2>EDUCATION</h2>
+          <div class="timeline">
+            <div class="timeline-item" itemscope itemtype="http://schema.org/EducationEvent">
+              <p>
+                <span class="role" itemprop="eventAttendanceMode">Bachelor in Computer Science</span> (
+                <span itemprop="startDate" content="2021">2021</span> - 
+                <span itemprop="endDate" content="2025">2025</span> )
+              </p>
+              <p itemprop="location" itemscope itemtype="http://schema.org/Place">
+                <span itemprop="name">University of Sargodha</span>
+              </p>
             </div>
-            
-            <div class="main-content">
-               
-                <div class="profile-section" itemprop="description">
-                    <h2 class="profile-heading">PROFESSIONAL PROFILE</h2>
-                    <p class="summary-text">
-                        Creative Web Designer &amp; Developer with expertise in user-centric designs and module development. Passionate about crafting impactful web experiences and delivering tailored solutions.
-                    </p>
-                </div>
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-icon">🎓</div>
-                        <h2 class="section-heading">EDUCATION</h2>
-                    </div>
-                    <div class="timeline">
-                        <div class="timeline-item" itemscope itemtype="http://schema.org/EducationEvent">
-                            <div class="timeline-heading">
-                                <div>
-                                    <span class="role" itemprop="eventAttendanceMode">Bachelor in Computer Science</span>
-                                </div>
-                                <span class="date" itemprop="startDate" content="2021">2021</span> - 
-                                <span class="date" itemprop="endDate" content="2025">2025</span>
-                            </div>
-                            <p>
-                                <span class="company" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                                    <span itemprop="name">University of Sargodha</span>
-                                </span>
-                            </p>
-                        </div>
-                        
-                        <div class="timeline-item" itemscope itemtype="http://schema.org/EducationEvent">
-                            <div class="timeline-heading">
-                                <div>
-                                    <span class="role" itemprop="eventAttendanceMode">Intermediate in Computer Science</span>
-                                </div>
-                                <span class="date" itemprop="startDate" content="2019">2019</span> - 
-                                <span class="date" itemprop="endDate" content="2021">2021</span>
-                            </div>
-                            <p>
-                                <span class="company" itemprop="location" itemscope itemtype="http://schema.org/Place">
-                                    <span itemprop="name">Punjab Group of Colleges</span>
-                                </span> - Sargodha, Punjab
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-icon">💼</div>
-                        <h2 class="section-heading">WORK EXPERIENCE</h2>
-                    </div>
-                    <div class="timeline">
-                        <div class="timeline-item" itemscope itemtype="http://schema.org/OrganizationRole">
-                            <div class="timeline-heading">
-                                <div>
-                                    <span class="role" itemprop="roleName">Software Engineer</span> - 
-                                    <span class="company" itemprop="memberOf" itemscope itemtype="http://schema.org/Organization">
-                                        <span itemprop="name">TechVision365</span>
-                                    </span>
-                                </div>
-                                <span class="date" itemprop="startDate" content="2023-08-23">23 Aug, 2023</span> - 
-                                <span class="date" itemprop="endDate" content="2024-08">Aug, 2024</span>
-                            </div>
-                            <ul class="responsibilities">
-                                <li itemprop="description">Built custom websites and software modules, improving usability and scalability.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="timeline-item" itemscope itemtype="http://schema.org/OrganizationRole">
-                            <div class="timeline-heading">
-                                <div>
-                                    <span class="role" itemprop="roleName">Website Developer</span> - 
-                                    <span class="company" itemprop="memberOf" itemscope itemtype="http://schema.org/Organization">
-                                        <span itemprop="name">Upwork</span>
-                                    </span>
-                                </div>
-                                <span class="date" itemprop="startDate" content="2024-07">July 2024</span>
-                            </div>
-                            <ul class="responsibilities">
-                                <li itemprop="description">Designed user-friendly web interfaces, enhancing UX with visuals and personalization.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-header">
-                        <div class="section-icon">🚀</div>
-                        <h2 class="section-heading">PROJECTS</h2>
-                    </div>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-heading" itemscope itemtype="http://schema.org/CreativeWork">
-                                <div>
-                                    <span class="role" itemprop="name">Magnetic Reconnection</span>
-                                </div>
-                                <span class="date" itemprop="dateCreated" content="2023-09">Sept 2023</span>
-                            </div>
-                            <ul class="responsibilities">
-                                <li itemprop="description">Developed a web-based tool to measure magnetic reconnections in space—key to understanding solar flares and geomagnetic storms.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-heading" itemscope itemtype="http://schema.org/CreativeWork">
-                                <div>
-                                    <span class="role" itemprop="name">Cake Corner App</span>
-                                </div>
-                                <span class="date" itemprop="dateCreated" content="2024-05">May 2024</span>
-                            </div>
-                            <ul class="responsibilities">
-                                <li itemprop="description">Designed and developed a bakery mobile app with intuitive user interface and seamless ordering functionality.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-heading" itemscope itemtype="http://schema.org/CreativeWork">
-                                <div>
-                                    <span class="role" itemprop="name">PowerGen Solutions Web Portal</span>
-                                </div>
-                                <span class="date" itemprop="dateCreated" content="2024-08">Aug 2024</span>
-                            </div>
-                            <ul class="responsibilities">
-                                <li itemprop="description">Created a web portal with a product catalog, innovation showcase, and business solutions.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-heading" itemscope itemtype="http://schema.org/CreativeWork">
-                                <div>
-                                    <span class="role" itemprop="name">Dani's Fabric</span>
-                                </div>
-                                <span class="date" itemprop="dateCreated" content="2024-09">Sep 2024</span>
-                            </div>
-                            <ul class="responsibilities">
-                                <li itemprop="description">Developed a web-based platform for Dani's Fabric to efficiently manage purchase and sale records.</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-heading" itemscope itemtype="http://schema.org/CreativeWork">
-                                <div>
-                                    <span class="role" itemprop="name">Medicine Inventory System</span>
-                                </div>
-                                <span class="date" itemprop="dateCreated" content="2023-01">Jan 2023</span>
-                            </div>
-                            <ul class="responsibilities">
-                                <li itemprop="description">Developed a web-based platform for efficient management of medicine purchase and sale records.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
+            <div class="timeline-item" itemscope itemtype="http://schema.org/EducationEvent">
+              <p>
+                <span class="role" itemprop="eventAttendanceMode">Intermediate in Computer Science</span> (
+                <span itemprop="startDate" content="2019">2019</span> - 
+                <span itemprop="endDate" content="2021">2021</span> )
+              </p>
+              <p itemprop="location" itemscope itemtype="http://schema.org/Place">
+                <span itemprop="name">Punjab Group of Colleges</span> - Sargodha, Punjab
+              </p>
             </div>
+          </div>
         </div>
+        
+        <div class="section">
+          <h2>WORK EXPERIENCE</h2>
+          <div class="timeline">
+            <div class="timeline-item" itemscope itemtype="http://schema.org/OrganizationRole">
+              <p>
+                <span class="role" itemprop="roleName">Software Engineer</span> at 
+                <span class="company" itemprop="memberOf" itemscope itemtype="http://schema.org/Organization">
+                  <span itemprop="name">TechVision365</span>
+                </span> (
+                <span itemprop="startDate" content="2023-08-23">23 Aug, 2023</span> - 
+                <span itemprop="endDate" content="2024-08">Aug, 2024</span> )
+              </p>
+              <p itemprop="description">
+                Built custom websites and software modules, improving usability and scalability.
+              </p>
+            </div>
+            <div class="timeline-item" itemscope itemtype="http://schema.org/OrganizationRole">
+              <p>
+                <span class="role" itemprop="roleName">Website Developer</span> at 
+                <span class="company" itemprop="memberOf" itemscope itemtype="http://schema.org/Organization">
+                  <span itemprop="name">Upwork</span>
+                </span> (
+                <span itemprop="startDate" content="2024-07">July 2024</span> )
+              </p>
+              <p itemprop="description">
+                Designed user-friendly web interfaces, enhancing UX with visuals and personalization.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="section">
+          <h2>PROJECTS</h2>
+          <div class="timeline">
+            <div class="timeline-item" itemscope itemtype="http://schema.org/CreativeWork">
+              <p>
+                <span class="role" itemprop="name">Magnetic Reconnection</span> (
+                <span itemprop="dateCreated" content="2023-09">Sept 2023</span> )
+              </p>
+              <p itemprop="description">
+                Developed a web-based tool to measure magnetic reconnections in space—key to understanding solar flares and geomagnetic storms.
+              </p>
+            </div>
+            <div class="timeline-item" itemscope itemtype="http://schema.org/CreativeWork">
+              <p>
+                <span class="role" itemprop="name">Cake Corner App</span> (
+                <span itemprop="dateCreated" content="2024-05">May 2024</span> )
+              </p>
+              <p itemprop="description">
+                Designed and developed a bakery mobile app with intuitive user interface and seamless ordering functionality.
+              </p>
+            </div>
+            <div class="timeline-item" itemscope itemtype="http://schema.org/CreativeWork">
+              <p>
+                <span class="role" itemprop="name">PowerGen Solutions Web Portal</span> (
+                <span itemprop="dateCreated" content="2024-08">Aug 2024</span> )
+              </p>
+              <p itemprop="description">
+                Created a web portal with a product catalog, innovation showcase, and business solutions.
+              </p>
+            </div>
+            <div class="timeline-item" itemscope itemtype="http://schema.org/CreativeWork">
+              <p>
+                <span class="role" itemprop="name">Dani's Fabric</span> (
+                <span itemprop="dateCreated" content="2024-09">Sep 2024</span> )
+              </p>
+              <p itemprop="description">
+                Developed a web-based platform for Dani's Fabric to efficiently manage purchase and sale records.
+              </p>
+            </div>
+            <div class="timeline-item" itemscope itemtype="http://schema.org/CreativeWork">
+              <p>
+                <span class="role" itemprop="name">Medicine Inventory System</span> (
+                <span itemprop="dateCreated" content="2023-01">Jan 2023</span> )
+              </p>
+              <p itemprop="description">
+                Developed a web-based platform for efficient management of medicine purchase and sale records.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
     </div>
+  </div>
 </body>
 </html>
